@@ -1,7 +1,8 @@
-# react-ready-template
+# CloudOps Dashboard
 
-A production-minded React template bootstrapped with Vite and organized in a scalable, feature-oriented structure. It’s meant to be a clean starting point for real apps: routing, data fetching, state, UI utilities, and testing are wired from day one.
+An enterprise-grade Data Resilience and File Management Dashboard. This project demonstrates a scalable frontend architecture designed for complex SaaS applications, utilizing Feature-Sliced Design (FSD) to decouple business logic from UI presentation.
 
+The application simulates a mission-critical interface for managing cloud storage, file hierarchies, and data integrity monitoring, mirroring the standards of industry leaders like Veeam.
 ## Tech stack
 
 - **Build**: Vite + React + TypeScript
