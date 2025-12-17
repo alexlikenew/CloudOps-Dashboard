@@ -1,9 +1,13 @@
 import Sidebar from "./ui/Sidebar.tsx";
+import Header from "./ui/Header.tsx";
 
 
 export const AppLayout = () => {
     return (
-      <Sidebar/>
+        <>
+            <Header/>
+            <Sidebar/>
+        </>
     );
 };
 
