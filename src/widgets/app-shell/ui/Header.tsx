@@ -19,7 +19,7 @@ export default function Header() {
 
             <div className = "flex items-center gap-3">
                 <Button variant = "ghost" size = "icon">
-                    <Bell className = "h-5 w-5 text-slate-600"/>
+                    <Bell className = "h-5 w-5 text-slate-600 bg-slate-600"/>
                 </Button>
 
                 <Button>
