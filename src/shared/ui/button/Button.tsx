@@ -5,11 +5,11 @@ import {cn} from "../../lib/cn.ts";
 
 
 const buttonVariants = cva(
-    "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-blue-600 disabled:pointer-events-none disabled:opacity-50",
+    " text-black inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-blue-600 disabled:pointer-events-none disabled:opacity-50",
     {
         variants: {
             variant: {
-                default: "bg-blue-600 text-white shadow hover:bg-blue-700",
+                default: "bg-blue-600 text-black shadow hover:bg-blue-700",
                 destructive: "bg-red-500 text-white shadow-sm hover:bg-red-600",
                 outline: "border border-slate-200 bg-white shadow-sm hover:bg-slate-100 hover:text-slate-900",
                 ghost: "hover:bg-slate-100 hover:text-slate-900",
