@@ -1,8 +1,13 @@
 import {Bell, CloudUpload, Search} from "lucide-react";
 import {Button} from "../../../shared/ui/button/Button.tsx";
+import {useState} from "react";
+import {UploadModal} from "../../../features/upload-file/ui/UploadModal.tsx";
 
 
 export default function Header() {
+    const [isUploadOpen, setIsUploadOpen] = useState(false)
+
+
     return (
         <header className = "flex h-16 items-center justify-between border-b border-slate-200 bg-white px-8">
 
@@ -19,14 +24,16 @@ export default function Header() {
 
             <div className = "flex items-center gap-3">
                 <Button variant = "ghost" size = "icon">
-                    <Bell className = "h-5 w-5 text-slate-600 bg-slate-600"/>
+                    <Bell className = "h-5 w-5 text-slate-600 "/>
                 </Button>
 
-                <Button>
+                <Button onClick = {() => setIsUploadOpen(true)}>
                     <CloudUpload className = "mr-2 h-4 w-4"/>
                     Upload file
                 </Button>
             </div>
+
+            <UploadModal isOpen = {isUploadOpen} onClose = {() => setIsUploadOpen(false)}></UploadModal>
         </header>
     );
 }

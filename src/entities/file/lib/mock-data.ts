@@ -1,4 +1,5 @@
-import {FileNode} from "../model/types";
+import type {FileNode} from "../model/types.ts";
+
 
 export const MOCK_FILES: FileNode[] = [
     {

@@ -7,15 +7,15 @@ interface FileCardProps {
     file: FileNode
 }
 
-function FileCard({file}: FileCardProps) {
+export default function FileCard({file}: FileCardProps) {
     return (
         <div className = "bg-white border border-slate-200 rounded-xl hover:border-blue-500 p-4 flex flex-col">
             <div className = "flex justify-between">
                 <FileIcon type = {file.type}/>
-                {file.starred ? <Star className = "bg-yellow-300"/> : ''}
+                {file.starred ? <Star className = "h-4 w-4 fill-yellow-400 text-yellow-400"/> : ''}
             </div>
             <div className = "mt-4 flex flex-col gap-1">
-                <span className = "truncate font-medium"></span>
+                <span className = "truncate font-medium">{file.name}</span>
                 <div className = "flex justify-between text-slate-500 text-xs">
                     <span>{formatBytes(file.size)}</span><span>{file.updatedAt}</span>
                 </div>

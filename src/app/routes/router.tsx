@@ -3,6 +3,7 @@ import {createBrowserRouter, Navigate} from 'react-router-dom';
 
 import {AppLayout} from "../../widgets/app-shell/AppLayout.tsx";
 import {HomePage} from "../../pages/home/ui/HomePage.tsx";
+import FilePage from "../../pages/files/ui/FilePage.tsx";
 
 
 export const router = createBrowserRouter([
@@ -12,6 +13,10 @@ export const router = createBrowserRouter([
         children: [
             {index: true, element: <HomePage/>},
             {path: '*', element: <Navigate to = "/" replace/>},
+            {
+                path: '/files',
+                element: <FilePage/>
+            },
         ],
     },
 ]);
