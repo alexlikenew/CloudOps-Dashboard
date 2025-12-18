@@ -7,7 +7,7 @@ interface AuthInterface {
     loading: boolean
 }
 
-const AuthContext = createContext<AuthInterface | null>(null)
+const AuthContext = createContext<AuthInterface | undefined>(undefined)
 
 
 export function AuthProvider({children}: { children: React.ReactNode }) {
@@ -17,7 +17,7 @@ export function AuthProvider({children}: { children: React.ReactNode }) {
     useEffect(() => {
         const initSession = async () => {
             try {
-                const {data: {session}} = supabase.auth.getSession()
+                const {data: {session}} = await supabase.auth.getSession()
                 setSession(session)
             } catch (error) {
                 if (error instanceof Error) return error.message
@@ -31,7 +31,7 @@ export function AuthProvider({children}: { children: React.ReactNode }) {
             setSession(session)
             setLoading(false)
         })
-        return subscription.unsubscribe()
+        return () => subscription.unsubscribe()
     }, [])
 
     if (loading) {

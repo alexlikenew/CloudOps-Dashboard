@@ -1,21 +1,24 @@
 import {createBrowserRouter, Navigate} from 'react-router-dom';
-
-
-import {AppLayout} from "../../widgets/app-shell/AppLayout.tsx";
-import {HomePage} from "../../pages/home/ui/HomePage.tsx";
-import FilePage from "../../pages/files/ui/FilePage.tsx";
+import FilesPage from "../../pages/files/ui/FilesPage.tsx";
+import {ProtectedRoute} from "./ProtectedRoute.tsx";
+import {LoginPage} from "../../pages/login/ui/LoginPage.tsx";
 
 
 export const router = createBrowserRouter([
     {
+        path: '/login',
+        element: <LoginPage/>
+    },
+    {
         path: '/',
-        element: <AppLayout/>,
+        element: <ProtectedRoute/>,
         children: [
-            {index: true, element: <HomePage/>},
-            {path: '*', element: <Navigate to = "/" replace/>},
+            {
+                path: '/', element: <Navigate to = "/login" replace/>
+            },
             {
                 path: '/files',
-                element: <FilePage/>
+                element: <FilesPage/>
             },
         ],
     },

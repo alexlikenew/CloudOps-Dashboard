@@ -1,6 +1,6 @@
 import FileList from "./FileList.tsx";
 
-export default function FilePage() {
+export default function FilesPage() {
     return (
         <div className = "space-y-6">
             <div>
