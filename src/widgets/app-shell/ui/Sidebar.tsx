@@ -1,5 +1,6 @@
 import {Command, FolderOpen, LayoutDashboard, PieChart, Settings, UserRound} from "lucide-react";
 import SidebarLink from "./SidebarLink.tsx";
+import {StorageWidget} from "./StorageWidget.tsx";
 
 const NAV_ITEMS = [
     {label: 'Overview', path: '/', icon: LayoutDashboard},
@@ -36,6 +37,7 @@ function Sidebar() {
                 </nav>
             </div>
             <div className = "border-t border-slate-100 p-4">
+                <StorageWidget/>
                 <div
                     className = "flex items-center gap-3 rounded-lg bg-slate-50 p-3 hover:bg-slate-100 transition-colors cursor-pointer border border-transparent hover:border-slate-200"
                 >
