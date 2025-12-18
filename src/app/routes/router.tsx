@@ -1,7 +1,8 @@
 import {createBrowserRouter, Navigate} from 'react-router-dom';
-import FilesPage from "../../pages/files/ui/FilesPage.tsx";
 import {ProtectedRoute} from "./ProtectedRoute.tsx";
 import {LoginPage} from "../../pages/login/ui/LoginPage.tsx";
+import {AppLayout} from "../../widgets/app-shell/AppLayout.tsx";
+import FilesPage from "../../pages/files/ui/FilesPage.tsx";
 
 
 export const router = createBrowserRouter([
@@ -14,12 +15,18 @@ export const router = createBrowserRouter([
         element: <ProtectedRoute/>,
         children: [
             {
-                path: '/', element: <Navigate to = "/login" replace/>
-            },
-            {
-                path: '/files',
-                element: <FilesPage/>
-            },
+                element: <AppLayout/>,
+                children: [
+                    {
+                        path: '/',
+                        element: <Navigate to = {'/files'} replace/>
+                    },
+                    {
+                        path: '/files',
+                        element: <FilesPage/>
+                    }
+                ]
+            }
         ],
     },
 ]);

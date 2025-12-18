@@ -6,6 +6,7 @@ import {useNavigate} from "react-router-dom";
 import {useState} from "react";
 import {Lock, Mail} from "lucide-react";
 import {Button} from "../../../shared/ui/button/Button.tsx";
+import {useAuth} from "../../../app/providers/AuthProvider.tsx";
 
 const loginSchema = z.object({
     email: z.string().email('Invalid email'),
@@ -22,6 +23,7 @@ export function LoginPage() {
     })
     const navigate = useNavigate()
     const [apiError, setApiError] = useState<string | null>(null)
+    const context = useAuth()
 
     async function handleLogin(data: LoginFormData) {
         setApiError(null)
@@ -31,7 +33,7 @@ export function LoginPage() {
 
         })
         if (error) {
-            setApiError(error)
+            setApiError(error.message)
         } else {
             navigate('/')
         }
@@ -80,11 +82,11 @@ export function LoginPage() {
                         </div>
                     </div>
                 </div>
-                {apiError &&
+                {apiError && (
                     <div className = "rounded-md bg-red-50 p-3 text-sm text-red-600 border border-red-100">
                         {apiError}
                     </div>
-                }
+                )}
 
                 <Button
                     variant = "default"
