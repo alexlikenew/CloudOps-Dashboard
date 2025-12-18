@@ -14,14 +14,14 @@ export function useFileUpload() {
         setUploading(true)
 
         const userId = session.user.id;
-        const filePath = userId + '/' + Date.now() + '/' + file.name;
+        const filePath = `${userId}/${Date.now()}/${file.name}`;
 
         try {
-            const {data, error: storageError} = await supabase.storage.from('cloud-files').upload(filePath, file)
+            const {error: storageError} = await supabase.storage.from('cloud-files').upload(filePath, file)
             if (storageError) {
                 throw new Error('There was a problem with uploading your file to storage')
             }
-            const {data, error: databaseError} = await supabase.from('files').insert({
+            const {error: databaseError} = await supabase.from('files').insert({
                 name: file.name,
                 size: file.size,
                 user_id: userId,
