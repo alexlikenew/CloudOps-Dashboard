@@ -1,8 +1,21 @@
 # CloudOps Dashboard
 
-An enterprise-grade Data Resilience and File Management Dashboard. This project demonstrates a scalable frontend architecture designed for complex SaaS applications, utilizing Feature-Sliced Design (FSD) to decouple business logic from UI presentation.
+An enterprise-grade Data Resilience and File Management Dashboard. This project demonstrates a scalable frontend
+architecture designed for complex SaaS applications, utilizing Feature-Sliced Design (FSD) to decouple business logic
+from UI presentation.
 
-The application simulates a mission-critical interface for managing cloud storage, file hierarchies, and data integrity monitoring, mirroring the standards of industry leaders like Veeam.
+The application simulates a mission-critical interface for managing cloud storage, file hierarchies, and data integrity
+monitoring, mirroring the standards of industry leaders like Veeam.
+
+### 🟢 Live Demo
+
+**[Open Demo](https://cloud-ops-dashboard.vercel.app/)**
+
+**(Demo Account):**
+
+* **Email:** `admin@admin.com`
+* **Password:** `admin12345678`
+
 ## Tech stack
 
 - **Build**: Vite + React + TypeScript
@@ -19,6 +32,7 @@ The application simulates a mission-critical interface for managing cloud storag
 - **E2E tests**: Playwright
 
 ## Getting started
+
 - npm install
 - npm run dev
 
@@ -55,6 +69,7 @@ src/
 ### What goes where
 
 #### `app/`
+
 App-level composition and configuration.
 
 - `providers/`: wiring for Query + Router (single place to add app-level providers)
@@ -63,21 +78,27 @@ App-level composition and configuration.
 - `styles/`: global Tailwind entry (`globals.css`)
 
 #### `pages/`
+
 Route-level screens matched by routes. Pages should primarily compose `widgets/` and `features/`.
 
 #### `widgets/`
+
 Larger UI blocks shared across pages (layout, navigation, shells). Widgets can compose multiple features.
 
 #### `features/`
+
 Business features. Each feature typically owns its own:
+
 - `api/` (Axios calls + TanStack Query hooks/keys)
 - `model/` (feature state, optionally Zustand slice)
 - `ui/` (feature UI components)
 
 #### `entities/`
+
 Stable domain models (e.g. `User`, `File`) and optionally schemas/types reusable across features.
 
 #### `shared/`
+
 Reusable building blocks and utilities.
 
 - `api/`: `apiClient` (Axios instance), optional query config
@@ -95,6 +116,8 @@ I use a combination of **Tailwind CSS** and **CVA** to build reusable components
 
 ## Conventions
 
-- Prefer keeping state close to the feature. Use `app/store` only for truly global concerns (app-wide UI state, session/auth, etc.).
-- Put API calls and TanStack Query hooks under `features/<feature>/api` to keep server-state logic next to the feature that uses it.
+- Prefer keeping state close to the feature. Use `app/store` only for truly global concerns (app-wide UI state,
+  session/auth, etc.).
+- Put API calls and TanStack Query hooks under `features/<feature>/api` to keep server-state logic next to the feature
+  that uses it.
 - Use `shared/lib/cn.ts` to merge Tailwind classes safely (`clsx` + `tailwind-merge`).

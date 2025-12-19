@@ -1,4 +1,4 @@
-export type FileType = 'folder' | 'image' | 'video' | 'document' | 'archive'
+export type FileType = 'image' | 'video' | 'audio' | 'document' | 'other';
 
 export interface FileNode {
     id: string,
@@ -6,5 +6,6 @@ export interface FileNode {
     type: FileType,
     size: number,
     updatedAt: string,
-    starred: boolean
+    starred: boolean,
+    storage_path: string
 }
